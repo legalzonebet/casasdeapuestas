@@ -1,4 +1,6 @@
 ---
+import AgeVerification from '../components/AgeVerification.astro';
+
 interface Props {
   title?: string;
   description?: string;
@@ -44,6 +46,7 @@ const {
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="z6NOvps5FCs+AKgb6eBj/A" async></script>
   </head>
   <body>
+    <AgeVerification />
     <slot />
   </body>
 </html>

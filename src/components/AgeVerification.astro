@@ -1,0 +1,243 @@
+---
+// Popup de verificación de edad (+18)
+---
+
+<div id="age-verification-overlay" class="age-overlay">
+  <!-- Modal de verificación -->
+  <div id="age-modal" class="age-modal">
+    <div class="age-icon">🔞</div>
+    <h2>Verificación de edad</h2>
+    <p>Este sitio web contiene información sobre apuestas deportivas. Debes ser mayor de <strong>18 años</strong> para acceder.</p>
+    <p class="age-question">¿Eres mayor de 18 años?</p>
+    <div class="age-buttons">
+      <button id="age-yes" class="age-btn age-btn-yes">Sí, soy mayor de 18</button>
+      <button id="age-no" class="age-btn age-btn-no">No, soy menor de 18</button>
+    </div>
+    <p class="age-legal">El juego puede ser adictivo. Juega con responsabilidad.</p>
+  </div>
+
+  <!-- Landing de acceso denegado -->
+  <div id="age-denied" class="age-modal age-denied hidden">
+    <div class="age-icon">⛔</div>
+    <h2>Acceso restringido</h2>
+    <p>Lo sentimos, no puedes acceder a este sitio web porque es necesario ser <strong>mayor de 18 años</strong>.</p>
+    <p>En España, la legislación vigente prohíbe el acceso a contenidos relacionados con apuestas y juegos de azar a menores de edad.</p>
+    <div class="denied-info">
+      <h3>Si necesitas ayuda</h3>
+      <ul>
+        <li><strong>Teléfono de la Esperanza:</strong> 717 003 717</li>
+        <li><strong>FEJAR (Federación Española de Jugadores de Azar Rehabilitados):</strong> 900 200 225</li>
+      </ul>
+    </div>
+    <button id="age-back" class="age-btn age-btn-back">Volver a verificar</button>
+  </div>
+</div>
+
+<style>
+  .age-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .age-overlay.hidden,
+  .age-modal.hidden {
+    display: none;
+  }
+
+  .age-modal {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 16px;
+    padding: 40px 32px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: modalAppear 0.3s ease-out;
+  }
+
+  @keyframes modalAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .age-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+  }
+
+  .age-modal h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffc107;
+    margin-bottom: 12px;
+  }
+
+  .age-modal p {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .age-question {
+    font-size: 1.1rem !important;
+    color: #fff !important;
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 20px !important;
+  }
+
+  .age-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .age-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .age-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .age-btn-yes {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+  }
+
+  .age-btn-yes:hover {
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5);
+  }
+
+  .age-btn-no {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .age-btn-no:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .age-legal {
+    font-size: 0.8rem !important;
+    color: #888 !important;
+    font-style: italic;
+  }
+
+  /* Landing de acceso denegado */
+  .age-denied.hidden {
+    display: none;
+  }
+
+  .age-denied h2 {
+    color: #e74c3c;
+  }
+
+  .denied-info {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 20px 0;
+    text-align: left;
+  }
+
+  .denied-info h3 {
+    font-size: 0.95rem;
+    color: #ffc107;
+    margin-bottom: 10px;
+  }
+
+  .denied-info ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .denied-info li {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .age-btn-back {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+  }
+
+  .age-btn-back:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 480px) {
+    .age-modal {
+      padding: 28px 20px;
+    }
+
+    .age-buttons {
+      flex-direction: column;
+    }
+
+    .age-icon {
+      font-size: 48px;
+    }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('age-verification-overlay');
+  const modal = document.getElementById('age-modal');
+  const denied = document.getElementById('age-denied');
+  const btnYes = document.getElementById('age-yes');
+  const btnNo = document.getElementById('age-no');
+  const btnBack = document.getElementById('age-back');
+
+  // Comprobar si ya verificó la edad
+  if (localStorage.getItem('age_verified') === 'true') {
+    overlay?.classList.add('hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
+
+  btnYes?.addEventListener('click', () => {
+    localStorage.setItem('age_verified', 'true');
+    overlay?.classList.add('hidden');
+    document.body.style.overflow = '';
+  });
+
+  btnNo?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+    denied?.classList.remove('hidden');
+  });
+
+  btnBack?.addEventListener('click', () => {
+    denied?.classList.add('hidden');
+    modal?.classList.remove('hidden');
+  });
+</script>
