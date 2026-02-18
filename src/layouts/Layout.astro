@@ -7,9 +7,134 @@ interface Props {
 }
 
 const {
-  title = "Casas de apuestas legales en España 2026 | LegalZone",
-  description = "Comparativa de las mejores casas de apuestas con licencia DGOJ en España 2026. Bonos, cuotas, métodos de pago y opiniones verificadas."
+  title = "Códigos promocionales casas de apuestas 2026 | LegalZone",
+  description = "Todos los códigos promocionales activos de casas de apuestas en España 2026. Bonos sin depósito, freebets y ofertas de bienvenida verificadas mensualmente."
 } = Astro.props;
+
+const siteUrl = "https://casasdeapuestas.legalzone.es";
+const canonicalUrl = Astro.url.href.startsWith("https://casasdeapuestas.legalzone.es") ? siteUrl : Astro.url.href;
+const currentDate = new Date().toISOString().split('T')[0];
+const month = new Date().toLocaleDateString('es-ES', { month: 'long' });
+
+// ── Schema: WebSite ──
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  "url": siteUrl,
+  "name": "LegalZone Bet",
+  "description": "Comparador de códigos promocionales y bonos de bienvenida de casas de apuestas legales en España con licencia DGOJ.",
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "inLanguage": "es",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// ── Schema: Organization ──
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  "name": "LegalZone",
+  "url": "https://legalzone.es",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://legalzone.es/wp-content/themes/legalzone/assets/img/legalzone_blanco.webp",
+    "width": 180,
+    "height": 40
+  },
+  "sameAs": [
+    "https://legalzone.es"
+  ],
+  "description": "Portal de información verificada sobre casas de apuestas y casinos online legales en España."
+};
+
+// ── Schema: WebPage con speakable ──
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${siteUrl}/#webpage`,
+  "url": canonicalUrl,
+  "name": title,
+  "description": description,
+  "isPartOf": { "@id": `${siteUrl}/#website` },
+  "about": {
+    "@type": "Thing",
+    "name": "Códigos promocionales de casas de apuestas en España"
+  },
+  "inLanguage": "es",
+  "datePublished": "2025-12-01",
+  "dateModified": currentDate,
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "breadcrumb": { "@id": `${siteUrl}/#breadcrumb` },
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".section-title",
+      ".section-subtitle",
+      ".faq-question",
+      ".faq-answer",
+      ".content-block h2",
+      ".content-block p:first-of-type"
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "@id": `${siteUrl}/#itemlist`
+  }
+};
+
+// ── Schema: BreadcrumbList ──
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${siteUrl}/#breadcrumb`,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "LegalZone",
+      "item": "https://legalzone.es"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Códigos Promocionales Apuestas",
+      "item": siteUrl
+    }
+  ]
+};
+
+// ── Schema: Article (guía) ──
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": `Casas de apuestas con códigos promocionales en España 2026`,
+  "description": description,
+  "image": "https://legalzone.es/wp-content/uploads/2025/12/ico-300x300.png",
+  "datePublished": "2025-12-01",
+  "dateModified": currentDate,
+  "author": { "@id": `${siteUrl}/#organization` },
+  "publisher": { "@id": `${siteUrl}/#organization` },
+  "mainEntityOfPage": { "@id": `${siteUrl}/#webpage` },
+  "inLanguage": "es",
+  "about": [
+    { "@type": "Thing", "name": "Apuestas deportivas" },
+    { "@type": "Thing", "name": "Códigos promocionales" },
+    { "@type": "Thing", "name": "Bonos de bienvenida" },
+    { "@type": "Thing", "name": "Casas de apuestas España" }
+  ],
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".content-block h2", ".content-block p:first-of-type"]
+  }
+};
 ---
 
 <!doctype html>
@@ -23,8 +148,8 @@ const {
     <!-- SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href={Astro.url.href} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -32,11 +157,20 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="LegalZone Bet" />
+    <meta property="og:url" content={canonicalUrl} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
