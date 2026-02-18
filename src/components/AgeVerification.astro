@@ -6,7 +6,7 @@
   <!-- Modal de verificación -->
   <div id="age-modal" class="age-modal">
     <div class="age-icon">🔞</div>
-    <h2>Verificación de edad</h2>
+    <p class="age-title">Verificación de edad</p>
     <p>Este sitio web contiene información sobre apuestas deportivas. Debes ser mayor de <strong>18 años</strong> para acceder.</p>
     <p class="age-question">¿Eres mayor de 18 años?</p>
     <div class="age-buttons">
@@ -19,14 +19,14 @@
   <!-- Landing de acceso denegado -->
   <div id="age-denied" class="age-modal age-denied hidden">
     <div class="age-icon">⛔</div>
-    <h2>Acceso restringido</h2>
+    <p class="age-title">Acceso restringido</p>
     <p>Lo sentimos, no puedes acceder a este sitio web porque es necesario ser <strong>mayor de 18 años</strong>.</p>
     <p>En España, la legislación vigente prohíbe el acceso a contenidos relacionados con apuestas y juegos de azar a menores de edad.</p>
     <div class="denied-info">
-      <h3>Si necesitas ayuda</h3>
+      <p class="ayuda">Si necesitas ayuda</p>
       <ul>
-        <li><strong>Teléfono de la Esperanza:</strong> 717 003 717</li>
-        <li><strong>FEJAR (Federación Española de Jugadores de Azar Rehabilitados):</strong> 900 200 225</li>
+        <li><strong>FEJAR:</strong> 900 200 225</li>
+        <li><strong>RGIAJ:</strong> <a href="https://www.ordenacionjuego.es/participantes-juego/juego-seguro/rgiaj" target="_blank" rel="noopener noreferrer">Autoprohibición</a></li>
       </ul>
     </div>
     <button id="age-back" class="age-btn age-btn-back">Volver a verificar</button>
@@ -44,6 +44,18 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
+  }
+
+  .age-title {
+    font-size: calc(2rem + 0.5vw + 0.5vh) !important;
+    font-weight: 700;
+  }
+
+  .ayuda {
+    font-size: 0.9rem !important;
+    color: #ffc107 !important;
+    font-weight: 600;
+    margin-bottom: 8px;
   }
 
   .age-overlay.hidden,
