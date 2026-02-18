@@ -1,0 +1,182 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="https://legalzone.es" target="_blank" rel="noopener">
+          <img
+            src="https://legalzone.es/wp-content/themes/legalzone/assets/img/legalzone_blanco.webp"
+            alt="LegalZone"
+            class="footer-logo"
+            width="160"
+            height="36"
+            loading="lazy"
+          />
+        </a>
+        <p class="footer-tagline">
+          Información verificada sobre casas de apuestas y casinos online legales en España.
+          Subdominio oficial de <a href="https://legalzone.es" target="_blank" rel="noopener">LegalZone.es</a>.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#ranking">Ranking</a></li>
+          <li><a href="#guia">Guía Completa</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="https://legalzone.es" target="_blank" rel="noopener">LegalZone.es</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Juego Responsable</h4>
+        <ul>
+          <li><a href="https://www.ordenacionjuego.es" target="_blank" rel="noopener noreferrer">DGOJ</a></li>
+          <li><a href="https://www.jugarbien.es" target="_blank" rel="noopener noreferrer">Jugar Bien</a></li>
+          <li><a href="https://fejar.org" target="_blank" rel="noopener noreferrer">FEJAR</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-badges">
+      <div class="badge">+18</div>
+      <div class="badge badge-text">Juego Seguro</div>
+      <div class="badge badge-text">Juega con Responsabilidad</div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>
+        Este sitio web tiene carácter informativo. Las casas de apuestas y casinos listados
+        operan con licencia de la Dirección General de Ordenación del Juego (DGOJ).
+        Los enlaces de registro pueden contener enlaces de afiliación. El juego puede crear
+        adicción: juega con responsabilidad. Prohibido para menores de 18 años.
+        Línea de ayuda FEJAR: 900 200 225.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} LegalZone. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: #090909;
+    border-top: 1px solid rgba(212, 168, 83, 0.1);
+    padding: 60px 0 30px;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    height: 32px;
+    width: auto;
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    max-width: 360px;
+  }
+
+  .footer-tagline a {
+    color: #2ecc71;
+    text-decoration: underline;
+  }
+
+  .footer-links h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #d4a853;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+    color: #888;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+  }
+
+  .footer-badges {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 168, 83, 0.08);
+    border: 1px solid rgba(212, 168, 83, 0.2);
+    color: #d4a853;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 6px;
+    min-width: 48px;
+  }
+
+  .badge-text {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .footer-disclaimer {
+    margin-bottom: 24px;
+  }
+
+  .footer-disclaimer p {
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

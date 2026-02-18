@@ -1,0 +1,204 @@
+---
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="https://legalzone.es" target="_blank" rel="noopener" class="logo-link">
+      <img
+        src="https://legalzone.es/wp-content/themes/legalzone/assets/img/legalzone_blanco.webp"
+        alt="LegalZone"
+        class="logo"
+        width="180"
+        height="40"
+        loading="eager"
+      />
+    </a>
+    <nav class="nav">
+      <a href="#ranking" class="nav-link">Ranking</a>
+      <a href="#guia" class="nav-link">Guía</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://legalzone.es" target="_blank" rel="noopener" class="nav-link nav-cta">
+        Ir a LegalZone.es
+      </a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-nav">
+    <a href="#ranking" class="mobile-nav-link">Ranking</a>
+    <a href="#guia" class="mobile-nav-link">Guía</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="https://legalzone.es" target="_blank" rel="noopener" class="mobile-nav-link mobile-cta">
+      Ir a LegalZone.es
+    </a>
+  </nav>
+</div>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('open');
+      toggle?.classList.remove('active');
+    });
+  });
+</script>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(13, 13, 13, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 168, 83, 0.15);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: #b0b0b0;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: #ffffff;
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, #1a7a2e, #2ecc71);
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .nav-cta:hover {
+    opacity: 0.9;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 13, 13, 0.98);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 28px;
+  }
+
+  .mobile-nav-link {
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .mobile-cta {
+    background: linear-gradient(135deg, #1a7a2e, #2ecc71);
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: block;
+    }
+  }
+</style>

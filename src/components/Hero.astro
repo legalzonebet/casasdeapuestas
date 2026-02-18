@@ -1,0 +1,180 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <span class="hero-badge">Actualizado Febrero 2026</span>
+    <h1 class="hero-title">
+      Mejores Casas de Apuestas<br />
+      <span class="hero-highlight">y Casinos Online en España</span>
+    </h1>
+    <p class="hero-subtitle">
+      Ranking verificado de las plataformas legales con licencia DGOJ.
+      Compara, elige y regístrate de forma segura.
+    </p>
+    <div class="hero-actions">
+      <a href="#ranking" class="hero-btn hero-btn-primary">Ver Ranking Completo</a>
+      <a href="https://legalzone.es" target="_blank" rel="noopener" class="hero-btn hero-btn-secondary">
+        Visitar LegalZone.es
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Licencia DGOJ</span>
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>100% Legal</span>
+      </div>
+      <div class="trust-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>+18 Juego Responsable</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #0d0d0d 0%, #0f2e1a 40%, #1a7a2e 70%, #0d0d0d 100%);
+    opacity: 0.7;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(46, 204, 113, 0.15) 0%, transparent 60%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212, 168, 83, 0.15);
+    border: 1px solid rgba(212, 168, 83, 0.4);
+    color: #d4a853;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-title {
+    font-size: clamp(32px, 6vw, 58px);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-highlight {
+    background: linear-gradient(135deg, #2ecc71, #d4a853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: #b0b0b0;
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero-btn-primary {
+    background: linear-gradient(135deg, #1a7a2e, #2ecc71);
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(46, 204, 113, 0.3);
+  }
+
+  .hero-btn-primary:hover {
+    box-shadow: 0 6px 32px rgba(46, 204, 113, 0.45);
+  }
+
+  .hero-btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .hero-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-trust {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #888;
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-btn {
+      width: 100%;
+      justify-content: center;
+      max-width: 300px;
+    }
+
+    .hero-trust {
+      gap: 16px;
+    }
+  }
+</style>
