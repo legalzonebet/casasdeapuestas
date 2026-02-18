@@ -7,12 +7,12 @@ interface Props {
 }
 
 const {
-  title = "Códigos promocionales casas de apuestas 2026 | LegalZone",
-  description = "Todos los códigos promocionales activos de casas de apuestas en España 2026. Bonos sin depósito, freebets y ofertas de bienvenida verificadas mensualmente."
+  title = "Casas de apuestas legales en España 2026 | LegalZone",
+  description = "Comparativa de las mejores casas de apuestas con licencia DGOJ en España 2026. Bonos, cuotas, métodos de pago y opiniones verificadas."
 } = Astro.props;
 
 const siteUrl = "https://casasdeapuestas.legalzone.es";
-const canonicalUrl = Astro.url.href.startsWith("https://casasdeapuestas.legalzone.es") ? siteUrl : Astro.url.href;
+const canonicalUrl = "https://casasdeapuestas.legalzone.es";
 const currentDate = new Date().toISOString().split('T')[0];
 const month = new Date().toLocaleDateString('es-ES', { month: 'long' });
 
